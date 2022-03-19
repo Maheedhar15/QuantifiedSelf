@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{{url_for('static',filename='login.css')}}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration page</title>
+</head>
+<body>
+    <h1 style="margin-top: 107px; text-align: center;">Enter your details for registration</h1>
+    <form style="margin-right: 522px;margin-top: 29px; margin-left: 519px" method="POST" action='/register'>
+        <div class="form-group">
+          <label for="exampleInputEmail1" required>Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="mailID" placeholder="Enter email" style="border-radius: 20px;" required="required">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1" required>Username</label>
+          <input type="name" class="form-control" id="exampleInputPassword1" name="uname" placeholder="Your name"  style="border-radius: 20px;" required="required">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="passw" placeholder="Password" style="border-radius: 20px;" required="required">
+        </div>
+        
+        <button type="submit" class="btn btn-outline-dark"  style="border-radius: 15px;">register</button>
+      </form>
+</body>
+</html>

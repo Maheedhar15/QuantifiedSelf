@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="{{url_for('static',filename='t_create.css')}}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.js"></script>
+<div class="bg"></div>
+
+<div class="star-field">
+<div class="layer"></div>
+<div class="layer"></div>
+<div class="layer"></div>
+<html lang="en">
+<div id="confetti"></div>
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a tracker here</title>
+</head>
+<body>
+  <a href="/trackers/{{name}}" style="text-decoration: none;"><h4 style="color:white;text-align:right">Back to Trackers</h4></a>
+
+    <h1 style="margin-top: 107px; text-align: center;color: white;">Create your tracker here</h1>
+    <form style="margin-right: 522px;margin-top: 29px; margin-left: 519px" method="POST" action='/trackers/{{name}}/create'>
+        <div class="form-group">
+          <label for="exampleInputEmail1"  style="color: white;">Tracker name</label>
+          <input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="tname" placeholder="Name of your tracker" required>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1" style="color: white;">Tracker Description</label>
+          <input type="name" class="form-control" id="exampleInputPassword1" name="tdesc" placeholder="Tracker Description" required>
+        </div>
+        <div class="form-group">
+          <label for="inputState" style="color: white;">Tracker type</label>
+          <select id="inputState" class="form-control" name="ttype" required>
+            <option selected>Choose...</option>
+            <option>Numerical</option>
+            <option>Multiple Choice</option>
+            <option>Range based</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1" style="color: white;">Tracker settings</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tsettings" placeholder="Tracker settings(Enter different settings as comma separated values)"></textarea>
+          <small style="color: white;">If your tracker type is Numerical, leave the tracker settings to NULL</small>
+        </div>   
+        <button type="submit" class="btn btn-outline-light">create tracker</button>
+      </form>
+</body>
+</html>

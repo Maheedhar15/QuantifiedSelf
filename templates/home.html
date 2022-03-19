@@ -1,0 +1,59 @@
+{% block home %}
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ url_for('static',filename='home.css') }}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home of QuantifiedSelf</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: aliceblue;">
+    {% if name=='Guest' %}
+    <a class="navbar-brand" href="/home/guest/trackers">Your trackers</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    {% else %}
+    <a class="navbar-brand" href="/trackers/{{name}}">Your trackers</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    {% endif %}
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <!--
+        <li class="nav-item active">
+          <a class="nav-link" href="/home/guest/trackers/details">Tracker details</a>
+        </li>
+        -->
+        <li class="nav-item active">
+          <a class="nav-link" href="/about/{{name}}">About</a>
+        </li>
+        
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Logout</a>
+        </li>
+      </ul>
+      <li class="nav-item">
+        <a href="/home/{{name}}" style="text-decoration: none; color: black;">QuantifiedSelf</a>
+      </li>
+    </div>
+  </nav>
+  <div class="image">
+    <img class="image__img" src="{{url_for('static', filename='Mountains.jpg')}}" alt="Mountains">
+    <div class="image__overlay image__overlay--primary">
+        <div class="image__title">QuantifiedSelf</div>
+        <p class="image__description">
+            Welcome to QuantifiedSelf, {{name}}. Add trackers to your day-to-day activities and track your progressions.
+             <br>
+             View your current trackers by clicking on the your trackers icon.<br>
+            If you have no trackers running currently, get started by adding trackers to your leisure. Have fun!
+        </p>
+    </div>
+</div>
+</body>
+</html>
+{% endblock home %}
